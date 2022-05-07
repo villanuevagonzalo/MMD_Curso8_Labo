@@ -1,17 +1,22 @@
 #Arbol elemental con libreria  rpart
 #Debe tener instaladas las librerias  data.table  ,  rpart   y rpart.plot
 
+```{r}
 #cargo las librerias que necesito
 require("data.table")
 require("rpart")
 require("rpart.plot")
+```
 
+```{r}
 #Aqui se debe poner la carpeta de SU computadora local
-setwd("D:\\gdrive\\UTN2022P\\")  #Establezco el Working Directory
+setwd("A:/20. Formación Academica/02. Mineria de Datos/01. Cursos/08. Aplicaciones de Minería de Datos a Economía y Finanzas/MMD_Curso8_Labo")  #Establezco el Working Directory
 
 #cargo los datos de 202011 que es donde voy a ENTRENAR el modelo
-dtrain  <- fread("./datasets/paquete_premium_202011.csv")
+dtrain  <- fread("./dataset/paquete_premium_202011.csv")
+```
 
+```{r}
 #genero el modelo,  aqui se construye el arbol
 modelo  <- rpart("clase_ternaria ~ .",  #quiero predecir clase_ternaria a partir de el resto de las variables
                  data = dtrain,
@@ -20,20 +25,23 @@ modelo  <- rpart("clase_ternaria ~ .",  #quiero predecir clase_ternaria a partir
                  minsplit=  80,     #minima cantidad de registros para que se haga el split
                  minbucket=  1,     #tamaño minimo de una hoja
                  maxdepth=   4 )    #profundidad maxima del arbol
-
-
+```
+```{r}
 #grafico el arbol
 prp(modelo, extra=101, digits=5, branch=1, type=4, varlen=0, faclen=0)
-
-
+```
+```{r}
 #Ahora aplico al modelo  a los datos de 202101  y genero la salida para kaggle
 
 #cargo los datos de 202011, que es donde voy a APLICAR el modelo
-dapply  <- fread("./datasets/paquete_premium_202101.csv")
-
+dapply  <- fread("./dataset/paquete_premium_202101.csv")
+```
+```{r}
 #aplico el modelo a los datos nuevos
 prediccion  <- predict( modelo, dapply , type = "prob")
+```
 
+```{r}
 #prediccion es una matriz con TRES columnas, llamadas "BAJA+1", "BAJA+2"  y "CONTINUA"
 #cada columna es el vector de probabilidades 
 
@@ -46,6 +54,7 @@ dapply[ , Predicted  := as.numeric(prob_baja2 > 1/60) ]
 #genero un dataset con las dos columnas que me interesan
 entrega  <- dapply[   , list(numero_de_cliente, Predicted) ] #genero la salida
 
+
 #genero el archivo para Kaggle
 #creo la carpeta donde va el experimento
 dir.create( "./labo/exp/" ) 
@@ -54,3 +63,4 @@ dir.create( "./labo/exp/KA2001" )
 fwrite( entrega, 
         file= "./labo/exp/KA2001/K101_001.csv", 
         sep= "," )
+```
