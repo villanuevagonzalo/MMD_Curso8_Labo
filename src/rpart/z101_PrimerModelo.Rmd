@@ -57,10 +57,7 @@ entrega  <- dapply[   , list(numero_de_cliente, Predicted) ] #genero la salida
 
 #genero el archivo para Kaggle
 #creo la carpeta donde va el experimento
-dir.create( "./labo/exp/" ) 
-dir.create( "./labo/exp/KA2001" ) 
-
 fwrite( entrega, 
-        file= "./labo/exp/KA2001/K101_001.csv", 
+        file= "./exp/KA2001/K101_001.csv", 
         sep= "," )
 ```
