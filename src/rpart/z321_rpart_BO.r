@@ -140,7 +140,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "D:\\gdrive\\Austral2022R\\" )
+setwd( "D:\\gdrive\\UTN2022P\\" )
 
 #cargo el dataset
 dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
@@ -150,7 +150,7 @@ dataset  <- fread("./datasets/paquete_premium_202011.csv")   #donde entreno
 # HT  representa  Hiperparameter Tuning
 dir.create( "./labo/exp/",  showWarnings = FALSE ) 
 dir.create( "./labo/exp/HT3210/", showWarnings = FALSE )
-setwd("D:\\gdrive\\Austral2022R\\labo\\exp\\HT3210\\")   #Establezco el Working Directory DEL EXPERIMENTO
+setwd("D:\\gdrive\\UTN2022P\\labo\\exp\\HT3210\\")   #Establezco el Working Directory DEL EXPERIMENTO
 
 
 archivo_log  <- "HT321.txt"
