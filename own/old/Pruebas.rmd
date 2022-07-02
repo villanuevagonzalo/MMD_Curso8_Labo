@@ -1,0 +1,51 @@
+
+```{r}
+library(readxl)
+library(egg)
+library(ggplot2)
+library(gridExtra) # Paquete para acomodar gráficos simultáneos
+library(corpcor) # Paquete que incluye una estimación eficiente de covarianza y correlación
+library(Hotelling) # Paquete que implementa el test de Hotelling
+library(car) # Paquete con funciones que acompañan regresión aplicada
+library(mvnormtest) # Paquete que generaliza el test de Shapiro-Wilk para el caso multivariado
+library(biotools) # Paquete con herramientas para análisis de conglomerados y de discriminante
+library(corrplot) # Paquete para la visualización gráfica de matrices
+library(klaR) # Paquete con funciones para clasificación y visualización
+library(vcd) # clasificacion con regresión logística
+library(boot) #curva roc
+library(ROCR) #curva roc
+library(nnet)
+library(ada)
+library(e1071)
+require("data.table")
+require("rlist")
+
+require("rpart")
+require("parallel")
+
+#paquetes necesarios para la Bayesian Optimization
+require("DiceKriging")
+require("mlrMBO")
+```
+
+
+
+```{r}
+dataset  <- fread("./dataset/paquete_premium_202011.csv")
+df = data.frame(dataset)
+```
+
+
+```{r}
+dfrecortado1<- hcut(df, k = 3, stand = TRUE)
+fviz_dend(dfrecortado1, rect = TRUE)
+```
+
+
+fviz_nbclust(dfrecortado, kmeans, method = "silhouette")
+
+
+```{r}
+dataset  <- read_excel("./gridsearch.xlsx")
+df = data.frame(dataset)
+```

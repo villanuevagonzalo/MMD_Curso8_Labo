@@ -51,6 +51,9 @@ setwd( "~/buckets/b1" )
 #cargo el dataset donde voy a entrenar
 dataset  <- fread(kdataset, stringsAsFactors= TRUE)
 
+#agrego 60 canaritos
+for( i in 1:60) dataset[ , paste0("canarito", i ) := runif( nrow(dataset) ) ]
+
 
 
 #--------------------------------------

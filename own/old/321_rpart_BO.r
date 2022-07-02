@@ -26,7 +26,7 @@ hs  <- makeParamSet(
           makeIntegerParam("maxdepth" , lower=  3L  , upper=   20L),
           forbidden = quote( minbucket > 0.5*minsplit ) )             # minbuket NO PUEDE ser mayor que la mitad de minsplit
 
-ksemilla_azar  <- 430007   #cambiar por la primer semilla
+ksemilla_azar  <- 102191   #cambiar por la primer semilla
 
 #------------------------------------------------------------------------------
 #graba a un archivo los componentes de lista
@@ -140,7 +140,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "A:\\20. Formación Academica\\02. Mineria de Datos\\01. Cursos\\08. Aplicaciones de Minería de Datos a Economía y Finanzas\\MMD_Curso8_Labo" )
+#setwd( "D:\\gdrive\\UTN2022P\\" )
 
 #cargo el dataset
 dataset  <- fread("./dataset/paquete_premium_202011.csv")   #donde entreno
@@ -148,9 +148,11 @@ dataset  <- fread("./dataset/paquete_premium_202011.csv")   #donde entreno
 
 #creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
-dir.create( "./labo/exp/",  showWarnings = FALSE ) 
-dir.create( "./labo/exp/HT3210/", showWarnings = FALSE )
-setwd("A:\\20. Formación Academica\\02. Mineria de Datos\\01. Cursos\\08. Aplicaciones de Minería de Datos a Economía y Finanzas\\MMD_Curso8_Labo\\exp\\HT3210\\")   #Establezco el Working Directory DEL EXPERIMENTO
+#dir.create( "./labo/exp/",  showWarnings = FALSE ) 
+#dir.create( "./labo/exp/HT3210/", showWarnings = FALSE )
+
+
+setwd("A:\\20. Formación Academica\\02. Mineria de Datos\\01. Cursos\\08. Aplicaciones de Minería de Datos a Economía y Finanzas\\MMD_Curso8_Labo")   #Establezco el Working Directory DEL EXPERIMENTO
 
 
 archivo_log  <- "HT321.txt"

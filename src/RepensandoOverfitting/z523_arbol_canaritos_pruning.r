@@ -7,7 +7,7 @@ library("rpart")
 library("rpart.plot")
 
 
-setwd( "D:\\gdrive\\ITBA2022A\\" )  #establezco la carpeta donde voy a trabajar
+setwd("A:/20. Formación Academica/02. Mineria de Datos/01. Cursos/08. Aplicaciones de Minería de Datos a Economía y Finanzas/MMD_Curso8_Labo")  #Establezco el Working Directory
 
 #cargo el dataset
 dtrain  <- fread( "./datasets/paquete_premium_202011.csv")
@@ -19,7 +19,7 @@ setorder( dtrain, clase_ternaria )
 dapply  <- fread( "./datasets/paquete_premium_202101.csv")
 
 #uso esta semilla para los canaritos
-set.seed(10219)
+set.seed(430007)
 
 campos_originales  <- copy( colnames( dtrain ) )
 
@@ -67,9 +67,9 @@ entrega  <- as.data.table( list( "numero_de_cliente"= dapply$numero_de_cliente,
 
 
 #creo la carepta donde guardo el resultado
-dir.create( "./labo/exp/",  showWarnings = FALSE ) 
-dir.create( "./labo/exp/KA5230/", showWarnings = FALSE )
-setwd("D:\\gdrive\\ITBA2022A\\labo\\exp\\KA5230\\")   #Establezco el Working Directory DEL EXPERIMENTO
+dir.create( "./exp/",  showWarnings = FALSE ) 
+dir.create( "./exp/KA5230/", showWarnings = FALSE )
+setwd("A:/20. Formación Academica/02. Mineria de Datos/01. Cursos/08. Aplicaciones de Minería de Datos a Economía y Finanzas/MMD_Curso8_Labo/exp/ST5210")  #Establezco el Working Directory DEL EXPERIMENTO
 
 #grabo la salida para Kaggle
 fwrite( entrega, 

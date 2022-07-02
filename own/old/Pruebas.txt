@@ -5,9 +5,13 @@ VALOR 14.07473 // VALOR PRIVADO 16.23257
     minbucket=  1
     maxdepth=   10
 
-VALOR 11.26978
+    interno da 8.582
+
+VALOR 16.18469
     xval=0,
-    cp=        -0.3
-    minsplit=  320
-    minbucket=  1
-    maxdepth=   20
+    cp=        -1
+    minsplit=  0
+    minbucket=  500
+    maxdepth=   6
+
+    interno da 10.542
