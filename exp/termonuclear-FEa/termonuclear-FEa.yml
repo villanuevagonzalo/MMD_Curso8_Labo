@@ -4,7 +4,7 @@ googlecloud:
   disk:  256
 
 experiment:
-  script: "src/completo/913_FE_UTN.r"
+  script: "src/completo/z913_FE_UTN.r"
   restart: FALSE
   name: "exp"
   type: "FeatureEngineering"
